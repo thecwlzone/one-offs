@@ -1,0 +1,91 @@
+FileSysTest
+
+Simulate an EDA environment WRT file and disk I/O
+
+There are two modes of operation for this program: Dynamic and Persistent. The modes are described below.
+
+Dynamic Mode
+
+For general file system testing, Dynamic Mode has the advantage of using less disk space,
+because the program cleans up test files "on the fly". This is the default mode of
+operation. As a general rule, when running all the tests, it is best to set the
+"--maxsize" option to 2 GigaBytes, i.e. "--maxsize 2.0G". This will ensure that no one
+file exceeds a 2GB size limit. In this case, the entire test suite should run in an 8 GigaByte
+disk partition. Smaller numbers may be used as well. See the Syntax section
+for details.
+
+Persistent Mode
+
+In order to test the cache efficiency of some file systems (e.g. AFS, OpenAFS, GSA, etc.),
+it is necessary to create files and keep them around in order to read the files into the cache system
+Persistent Mode allows this to occur by using the "--datadir" and "--fixname"
+options to set a persistent directory location and to provide for repeatable directory and
+file names during the test process. See the examples in the Syntax section below.
+
+In general, you will want to run a test in Persistent Mode, and then re-run the same test using the same
+settings for "--datadir" and "--fixname". If the cache system is working, then the run times for
+the second run of the test should be less than the first run when the files were originally created.
+See the examples in the Syntax section below. 
+
+Persistent Mode uses a lot of disk space - about 22 GigaBytes when "--maxsize" is set to 2.0G -
+you will probably not be able to use the "--all" option in Persistent Mode.
+
+For both modes, the program will check for disk quota before writing a file; if the directory specified in
+"--datadir" is full, the program will exit immediately.
+
+Syntax: ./FileSysTest.pl [options]
+
+Options:
+
+-h, -help, --help		Print usage and exit.
+--verbose				Show processing details. Default behavior is silent.
+--terse					Not silent, and not verbose.
+--seq					Run tests sequentially. Default behavior.
+--sim					Run tests simultaneously. Overrides --seq option.
+--all					Run all tests. Default behavior.
+--maxsize nG | nM | nK	Use files no larger than n bytes
+--dryrun				Run the code, but don't really do anything.
+						Best used with the --verbose option.
+--noclean				Keep all created files and directories.
+						Default behavior is to delete files "on the fly".
+--tests 1,2,n | 1-n		Run designated tests. Overrides --all option.
+--users n				Simulate n number users. Default is 1 user.
+						n > 1 is only useful with the --sim option enabled.
+--outdir				Output directory. Default location is
+						/tmp/filesystest-`date`
+--logfile				Output file. Default name is filesystest-`date`.log
+--datadir DirName		Use "DirName" as a persistent directory
+--fixname Name  		Create repeatable directory names containing "Name"
+-v, --version			Version number
+
+Syntax Examples:
+
+Run all tests with minimal messages to STDOUT
+./FileSysTest.pl --all --terse
+
+Run test 1 with a 2GB file size limit
+./FileSysTest.pl --tests 1 --maxsize 2.0G
+
+Run tests 2 through 10, see what the program is doing
+./FileSysTest.pl --tests 2-10 --verbose
+
+Run all tests, directory names contain "lehman", with file sizes no larger than 1.1 GigaBytes, minimal messages to STDOUT
+./FileSysTest.pl --all --fixname lehman --maxsize 1.1G --terse
+
+Run all tests simultaneously for two users, with file sizes no larger than 1.1 GigaBytes, minimal messages to STDOUT
+./FileSysTest.pl --all --users 2 --sim --maxsize 1.1G --terse
+
+Same as above, but don't actually create the files
+./FileSysTest.pl --all --users 2 --sim --maxsize 1.1G --dryrun
+
+Run tests 1 and 10 as four users, sequentially. In essence, this loops through tests 1 and 10 four times
+./FileSysTest.pl --tests 1,10 --users 4 --seq
+
+Run test 10, use a persistent directory and a fixed file name, write results to a log file
+./FileSysTest.pl --tests 10 --datadir /some_path/sandbox/mySandbox --fixname test10 --logfile afs-10-cold.log
+
+Run test 10 again using the persistent directory created above, write results to a different log file
+/FileSysTest.pl --tests 10 --datadir /some_path/sandbox/mySandbox --fixname test10 --logfile afs-10-hot.log
+
+Run all tests with default option values, send nothing to STDOUT
+./FileSysTest.pl
