@@ -1,1 +1,11 @@
-Coming soon...
+File System Test
+./FileSysTest
+This is a nice example of what you can do with Perl. I prefer Ruby, but this program had to run on Linux and AIX, and it wasn't always guaranteed that Ruby would be on the AIX machines. The program can simulate multiple users and processes through the use of forks. Caution - the default values for the program use a LOT of disk space, and too many multiple users can bring a server to its knees. I was able to throw exceptions on NFS, EXT3 and GPFS with this code. You've been warned.
+
+Latency Test
+./latency_test
+This code uses dRuby, aka drb, aka Distributed Ruby. I used this code to test latency between Linux client and server machines in a clustered load balancer server pool. The text string can be anything - in this example, I was sending load balancer log information. The file size is arbitrary, and I should probably add a command line switch to regulate the size.
+
+Capacitance Sorter
+./scs_cap_sorter.rb
+This code is a great example of "glue software" I used to write when I was in the Semiconductor Industry. The output from a very expensive third party Electronic Design Automation tool was often > 1 MByte in size, and the circuit design team asked me to massage the data to make it more readable. Unfortunately, I don't have any of the proprietary data to run the program on anymore, but it's still a really good example of using the power of Ruby to process files and strings, use the Array and Hash classes, and do a bit of math to convert capacitance values to various standard sizes (in Farads).
