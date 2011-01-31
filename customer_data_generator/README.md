@@ -70,7 +70,7 @@ where field is one of the fields defined in the previous section.
 
 Example:
 
-#
+#<br />
 First Name, name_first<br />
 Last Name, name_last<br />
 e-Mail, email<br />
