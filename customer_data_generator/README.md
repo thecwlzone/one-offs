@@ -6,7 +6,7 @@ This code was the result of the need to generate a large amount of unique custom
 
 * Ruby, any version
 * RubyGems
-# The Faker gem
+* The Faker gem
 
 ## Installation
 
@@ -15,21 +15,27 @@ This is a one-off, so just copy the file or the code to a local file and directo
 
 gen_cust_data.rb
 
-> ~/bin/gen_cust_data.rb --help
+~/bin/gen_cust_data.rb --help
 
-> Generate random amounts of customer data in CSV format, suitable for importing into some kind of Marketing Engine
-> Syntax: gen_cust_data.rb [ --help | -h ] [ --verbose | -v ] [--out_file outfile] [--out_dir outdir] [--data_map_file data_map_file] [--records n] [--years_back n]
-> Example: gen_cust_data.rb --records 10 --out_dir /tmp --out_file my_customers.csv
+Generate random amounts of customer data in CSV format, suitable for importing into some kind of Marketing Engine
+Syntax: gen_cust_data.rb [ --help | -h ] [ --verbose | -v ] [--out_file outfile] [--out_dir outdir] [--data_map_file data_map_file] [--records n] [--years_back n]
+Example: gen_cust_data.rb --records 10 --out_dir /tmp --out_file my_customers.csv
 
 ## Switches
 
 Command line switches:
 
 --out_file outfile
+
 --out_dir  outdir
+
 --records  n
+
 --years_back n
+
 --data_map_file file
+
+
 
 ## Data Map File
 

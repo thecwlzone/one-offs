@@ -1,3 +1,7 @@
+Customer Data Generator
+./customer_data_generator
+See separate documentation
+
 File System Test
 ./FileSysTest
 This is a nice example of what you can do with Perl. I prefer Ruby, but this program had to run on Linux and AIX, and it wasn't always guaranteed that Ruby would be on the AIX machines. The program can simulate multiple users and processes through the use of forks. Caution - the default values for the program use a LOT of disk space, and too many multiple users can bring a server to its knees. I was able to throw exceptions on NFS, EXT3 and GPFS with this code. You've been warned.
