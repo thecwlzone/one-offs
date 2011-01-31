@@ -13,7 +13,7 @@ This code was the result of the need to generate a large amount of unique custom
 This is a one-off, so just copy the file or the code to a local file and directory, and add the directory to $PATH (or just put it in $HOME/bin).
 ## Syntax
 
-gen_cust_data.rb
+gen_cust_data.rb [options]
 
 ~/bin/gen_cust_data.rb --help
 
@@ -27,19 +27,24 @@ Example: gen_cust_data.rb --records 10 --out_dir /tmp --out_file my_customers.cs
 
 Command line switches:
 
---out_file outfile
+--out_file outfile<br />
+Default name is customer_data.csv
 
---out_dir  outdir
+--out_dir outdir<br />
+Default directory is /tmp
 
---records  n
+--records n<br />
+Default number of records is a random value between 1 and 99
 
---years_back n
+--years_back n<br />
+When generating dates, create random dates for this year and n previous years. Default value if two years back.
 
---data_map_file file
+--data_map_file file<br />
+This file can be used to create data fields. Default fields are (in order) first name, last name, email and phone. See the next section for details.
 
 
 
 ## Data Map File
-
+TBD
 
 
