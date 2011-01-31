@@ -18,7 +18,9 @@ gen_cust_data.rb
 ~/bin/gen_cust_data.rb --help
 
 Generate random amounts of customer data in CSV format, suitable for importing into some kind of Marketing Engine
+
 Syntax: gen_cust_data.rb [ --help | -h ] [ --verbose | -v ] [--out_file outfile] [--out_dir outdir] [--data_map_file data_map_file] [--records n] [--years_back n]
+
 Example: gen_cust_data.rb --records 10 --out_dir /tmp --out_file my_customers.csv
 
 ## Switches
