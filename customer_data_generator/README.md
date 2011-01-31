@@ -70,13 +70,12 @@ where field is one of the fields defined in the previous section.
 
 Example:
 
-#<br />
 First Name, name_first<br />
 Last Name, name_last<br />
 e-Mail, email<br />
 Phone, phone<br />
 
-Comment lines are ignored and are denoted by use of the pound sign (#).
+Comment lines are ignored and are denoted by use of the pound sign (#) at the beginning of the line.
 
 
 
