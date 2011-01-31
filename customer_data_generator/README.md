@@ -37,7 +37,7 @@ Default directory is /tmp
 Default number of records is a random value between 1 and 99
 
 --years_back n<br />
-When generating dates, create random dates for this year and n previous years. Default value if two years back.
+When generating dates, create random dates for this year and n previous years. Default value is two years back.
 
 --data_map_file file<br />
 This file can be used to create data fields. Default fields are (in order) first name, last name, email and phone. See the next section for details.
@@ -45,6 +45,38 @@ This file can be used to create data fields. Default fields are (in order) first
 
 
 ## Data Map File
-TBD
+You can specify a header and a field to be generated as a key / value pair (but not really a hash).
+
+###Currently supported fields and their data type are:
+
+* name_first - Faker::Name.first_name
+* name_last - Faker::Name.last_name
+* email - Faker::Internet.email
+* phone - Faker::PhoneNumber.phone_number, filtered to be of the form xxx-xxx-xxxx
+* transaction_amount - random floating point number between 1.00 and 999.99 - no currency prefix
+* transaction_date - Random date from specified number of years back (default = 2) to present in the form of mm/dd/yyyy
+* transaction_time - Random time in 24 hour notation in the form of hh:mm:ss
+* address_line1 - Faker::Address.street_address
+* address_city - Faker::Address.city
+* address_state - Faker::Address.us_state_abbr
+* address_postal_code - Faker::Address.zip_code - truncated to the US 5 digit format
+* loyalty_program_id - a 3 digit integer to be used as a possible customer id, loyalty id, promotion id, etc.
+
+### File format:
+
+Header, field
+
+where field is one of the fields defined in the previous section.
+
+Example:
+
+#
+First Name, name_first<br />
+Last Name, name_last<br />
+e-Mail, email<br />
+Phone, phone<br />
+
+Comment lines are ignored and are denoted by use of the pound sign (#).
+
 
 
