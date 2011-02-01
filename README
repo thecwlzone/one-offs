@@ -1,6 +1,6 @@
 Customer Data Generator
 ./customer_data_generator
-See separate documentation
+Generate random amounts of customer data in CSV format, suitable for importing into some kind of Marketing Engine. See separate documentation.
 
 File System Test
 ./FileSysTest

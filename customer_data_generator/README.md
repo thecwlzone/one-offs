@@ -77,5 +77,18 @@ Phone, phone<br />
 
 Comment lines are ignored and are denoted by use of the pound sign (#) at the beginning of the line.
 
+## Sample Output
+
+gen_cust_data.rb --records 5 --out_dir ~/tmp --out_file sample_output.csv<br />
+cat ~/tmp/sample_output.csv
+
+First Name,Last Name,Email,Phone<br />
+Elbert,Schaefer,anika_adams@walter.info,193-624-2792<br />
+Cecile,Dibbert,pablo_pfannerstill@koepp.com,373-724-0369<br />
+Rudolph,Sporer,janelle@purdy.com,952-843-5185<br />
+Lorenz,Leffler,maybelle@frami.name,437-293-2819<br />
+Ramona,Reichel,claudie@purdyconroy.info,195-958-1060<br />
+
+
 
 
